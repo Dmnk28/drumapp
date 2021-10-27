@@ -1,5 +1,6 @@
 import { Container } from '@mui/material';
 import DrumPad from './components/DrumPad';
+import ProjectBar from './components/ProjectBar';
 
 import logo from './logo.svg';
 import './styles/main.css';
@@ -7,6 +8,7 @@ import './styles/main.css';
 const App = () => {
   return (
     <div className="App">
+      <ProjectBar></ProjectBar>
       <Container id="drum-machine">
         <div id="display"></div>
         <DrumPad key="Q" keyboard="Q"></DrumPad>
