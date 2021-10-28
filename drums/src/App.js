@@ -1,12 +1,12 @@
 import { Container } from '@mui/material';
 import DrumPad from './components/DrumPad';
 import ProjectBar from './components/ProjectBar';
+import drumsArray from './data/_drumsArray';
 
 import logo from './logo.svg';
 import './styles/main.css';
 
 const App = () => {
-  const keyboardArray = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
   
   return (
     <div className="App">
@@ -14,8 +14,8 @@ const App = () => {
       <Container id="drum-machine">
         <div id="display"></div>
 
-        {keyboardArray.map(keyOnBoard => (
-          <DrumPad key={keyOnBoard} keyboard={keyOnBoard}></DrumPad>
+        {drumsArray.map(el => (
+          <DrumPad id={el.id} keyLetter={el.keyLetter} keyCode={el.keyCode} soundUrl={el.soundUrl}></DrumPad>
           ))}
 
 {/**        <DrumPad key="Q" keyboard="Q"></DrumPad>  // Old Code. Only left for testing things
