@@ -6,20 +6,22 @@ import logo from './logo.svg';
 import './styles/main.css';
 
 const App = () => {
+  const keyboardArray = ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
+  
   return (
     <div className="App">
       <ProjectBar></ProjectBar>
       <Container id="drum-machine">
         <div id="display"></div>
-        <DrumPad key="Q" keyboard="Q"></DrumPad>
+
+        {keyboardArray.map(keyOnBoard => (
+          <DrumPad key={keyOnBoard} keyboard={keyOnBoard}></DrumPad>
+          ))}
+
+{/**        <DrumPad key="Q" keyboard="Q"></DrumPad>  // Old Code. Only left for testing things
         <DrumPad key="W" keyboard="W"></DrumPad>
         <DrumPad key="E" keyboard="E"></DrumPad>
-        <DrumPad key="A" keyboard="A"></DrumPad>
-        <DrumPad key="S" keyboard="S"></DrumPad>
-        <DrumPad key="D" keyboard="D"></DrumPad>
-        <DrumPad key="Z" keyboard="Z"></DrumPad>
-        <DrumPad key="X" keyboard="X"></DrumPad>
-        <DrumPad key="C" keyboard="C"></DrumPad>
+        */}
       </Container>
     </div>
   );
