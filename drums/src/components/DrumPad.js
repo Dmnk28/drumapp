@@ -5,19 +5,23 @@ import Button from "@mui/material/Button";
 
 const DrumPad = (props) => {
 
-    
-
-    const handleKeyDown = (event) => {
-        event.preventDefault();
-        if (event.keyCode === props.keyCode) handleClick();
+    const handleKeyDown = (keyCode, e) => {
+        e.preventDefault();
+        if (e.keyCode === keyCode) handleClick();
     }
 
     function handleClick() {
-        const audio = new Audio(props.soundUrl);
+        playaudio();
+        props.setDisplay(props.id);
+    }
+
+    function playaudio() {
+        const audio = document.getElementById(props.keyLetter);
+        audio.currentTime = 0;
         audio.play();
     }
 
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keydown', handleKeyDown.bind(this, props.keyCode));
 
     return (
         <Button id={props.id} className="drum-pad" variant="contained" onClick={handleClick}>{props.keyLetter}
