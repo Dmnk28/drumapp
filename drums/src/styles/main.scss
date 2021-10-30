@@ -1,3 +1,16 @@
 body {
     min-height: 100vh;
 }
+
+.App {
+    height: 100%;
+}
+
+#drum-machine {
+    min-height: 90vh;
+    background: chartreuse;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
