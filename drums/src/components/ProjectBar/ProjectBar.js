@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Divider, Drawer, IconButton, Link, List, ListItem, ListItemIcon, ListItemText, Popover, Typography } from "@mui/material";
+import { Divider, SwipeableDrawer, IconButton, Link, List, ListItem, ListItemIcon, ListItemText, Popover, Typography } from "@mui/material";
 import marked from 'marked';
 import DOMPurify from 'dompurify';
 
@@ -19,14 +19,14 @@ import './styles/projectbar.css'
 import readme_copy from './_readme_copy'
 
 const ProjectBar = (props) => {
-    const [state, setState] = useState(false);
+    const [drawerState, setDrawerState] = useState(false);
     const [readmeAnchor, setReadmeAnchor] = useState(false);
 
     const toggleDrawer = (open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
-        setState(open);
+        setDrawerState(open);
     }
 
     const handleReadme = (event) => {
@@ -50,17 +50,19 @@ const ProjectBar = (props) => {
             <div id="button-div">
                 <IconButton color='primary' onClick={toggleDrawer(true)}><DoubleArrowIcon></DoubleArrowIcon></IconButton>
             </div>
-            <Drawer sx={{
+            <SwipeableDrawer 
+                sx  = {{
                     width: 300,
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
                         width: 300,
                         boxSizing: 'border-box',
                     },
-                    }}
-                anchor="left"
-                open={state}
-                onClose={toggleDrawer(false)}
+                }}
+                anchor  =   "left"
+                open    =   {drawerState}
+                onClose =   {toggleDrawer(false)}
+                onOpen  =   {toggleDrawer(true)}
             >
                 <List>
                     <ListItem>
@@ -130,11 +132,11 @@ const ProjectBar = (props) => {
                     <Link className="pbar-link" href="https://do-webdev.de" target="_self">
                         <ListItem button key="portfolio">
                             <ListItemIcon><ArrowBackIcon /></ListItemIcon>
-                            <ListItemText primary="Back to portfolio"></ListItemText>
+                            <ListItemText primary="Back to my portfolio"></ListItemText>
                         </ListItem>
                     </Link>
                 </List>
-            </Drawer>
+            </SwipeableDrawer>
         </React.Fragment>
     );
 
