@@ -1,18 +1,24 @@
 #button-div {
-  height: 100vh;
+  position: fixed;
+  z-index: 2;
+  min-height: 90vh;
+  max-width: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+          justify-content: flex-end;
 }
 
-.pbar-link {
-  text-decoration: none;
-  color: inherit;
+#readme-div {
+  padding: 2rem;
 }
+
+/*
+.pbar-link {
+    text-decoration: none;
+    color: inherit;
+}
+*/
 /*# sourceMappingURL=projectbar.css.map */
