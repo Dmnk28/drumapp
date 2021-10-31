@@ -13,8 +13,7 @@ const App = () => {
   const [display, setDisplay] = useState('');
 
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} className="App">
       <ProjectBar 
           title       =   'Build a Drum Machine'
           institute    =   'FreeCodeCamp'
@@ -26,25 +25,34 @@ const App = () => {
           readme      =   'https://github.com/Dmnk28/drumapp/blob/main/README.md'
       />
       <Grid container spacing={{xs:3}} id="drum-machine">
-        <Grid item>
-          <Typography variant="h2">Drum Machine</Typography>
-          <Typography variant="h5">A FreeCodeCamp Project</Typography>
+        <Grid item xs={12}>
+          <Typography variant="h2" component="h1">Drum Machine</Typography>
+          <Typography variant="h5"component="h2">A FreeCodeCamp Project</Typography>
+        </Grid>
+        <Grid item xs={6} md={6}>
           <div id="display">
-            <h2>{display}</h2>
+            <Typography variant="h5" component="h3">{display}</Typography>
           </div>
         </Grid>
-        <Grid item>
+
+        <Grid item xs={12} sm={6}>
           <Grid container spacing={{xs:1}} colums={{xs:2}}>
             {drumsArray.map(el => (
               <Grid item xs={4} md={4}>
-                <DrumPad key={el.id} id={el.id} keyLetter={el.keyLetter} keyCode={el.keyCode} soundUrl={el.soundUrl} setDisplay={setDisplay}></DrumPad>
+                <DrumPad 
+                    key={el.id} 
+                    id={el.id} 
+                    keyLetter={el.keyLetter} 
+                    keyCode={el.keyCode} 
+                    soundUrl={el.soundUrl} 
+                    setDisplay={setDisplay} 
+                />
               </Grid>
             ))}
           </Grid>
         </Grid>
       </Grid>
-      </ThemeProvider>
-    </div>
+    </ThemeProvider>
   );
 }
 

@@ -16,3 +16,14 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+#display {
+    background-color: $pink;
+    min-height: 2rem;
+
+    border-radius: 25px;
+    padding: 1rem;
+    text-align: center;
+    color: $darkblue;
+    font-weight: bolder;
+}
