@@ -1,14 +1,15 @@
 body {
-  min-height: 100vh;
-}
-
-.App {
-  height: 100%;
+  min-height: 90vh;
+  background-color: #658CBF;
 }
 
 #drum-machine {
-  min-height: 90vh;
-  background: chartreuse;
+  max-width: 90vw;
+  padding: 3rem;
+  background: #FFF5F2;
+  border-radius: 25px;
+  margin: 4rem;
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

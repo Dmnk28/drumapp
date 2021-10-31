@@ -1,15 +1,17 @@
-body {
-    min-height: 100vh;
-}
+@import '_colors.scss';
 
-.App {
-    height: 100%;
+body {
+    min-height: 90vh;
+    background-color: $lightblue;
 }
 
 #drum-machine {
-    min-height: 90vh;
-    background: chartreuse;
-    
+    max-width: 90vw;
+    padding: 3rem;
+    background: $lightrose;
+    border-radius: 25px;
+    margin: 4rem;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
