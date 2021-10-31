@@ -11,6 +11,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFreeCodeCamp} from '@fortawesome/free-brands-svg-icons/faFreeCodeCamp';
 import {faCode} from '@fortawesome/free-solid-svg-icons/faCode';
 import {faAlignLeft} from '@fortawesome/free-solid-svg-icons/faAlignLeft';
+import CloseIcon from '@mui/icons-material/Close';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 // Styles
 import './styles/projectbar.css'
@@ -66,7 +68,7 @@ const ProjectBar = (props) => {
             >
                 <List>
                     <ListItem>
-                        <Typography variant="h4" color="secondary">{props.title}</Typography>
+                        <Typography variant="h4" pt={3} color="secondary">{props.title}</Typography>
                     </ListItem>
                     
                     <ListItem>
@@ -103,7 +105,12 @@ const ProjectBar = (props) => {
                             horizontal: 'left',
                         }}
                     >
-                        <div id="readme-div" dangerouslySetInnerHTML={{__html:loadReadme()}}></div>
+                        <div id="readme-div"> 
+                            <div id="readmeCloseIcon-div">
+                                <IconButton onClick={handleReadmeClose}><CloseIcon /></IconButton>
+                            </div>
+                            <div id="readme-text" dangerouslySetInnerHTML={{__html:loadReadme()}}></div>
+                        </div>
                     </Popover>
 
                     <Link className="pbar-link" href={props.userStory} target="_blank" rel="noopener">
@@ -129,6 +136,13 @@ const ProjectBar = (props) => {
                         </ListItem>
                     </Link>
                     
+                    <Link className="pbar-link" href="https://www.linkedin.com/in/dominikoesterle/" target="_blank" rel="noopener">
+                        <ListItem button key="github">
+                            <ListItemIcon><LinkedInIcon /></ListItemIcon>
+                            <ListItemText primary="LinkedIn Profile"></ListItemText>
+                        </ListItem>
+                    </Link>
+
                     <Link className="pbar-link" href="https://do-webdev.de" target="_self">
                         <ListItem button key="portfolio">
                             <ListItemIcon><ArrowBackIcon /></ListItemIcon>

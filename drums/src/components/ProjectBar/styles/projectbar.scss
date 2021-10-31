@@ -9,7 +9,17 @@
 }
 
 #readme-div {
-    padding: 2rem;
+    padding: 0.5rem;
+    max-width: 60vw;
+}
+
+#readmeCloseIcon-div{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#readme-text {
+    padding: 0 1.5rem 1.5rem 1.5rem;
 }
 /*
 .pbar-link {
