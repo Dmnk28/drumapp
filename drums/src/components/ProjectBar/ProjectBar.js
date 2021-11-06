@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { Divider, SwipeableDrawer, IconButton, Link, List, ListItem, ListItemIcon, ListItemText, Popover, Typography } from "@mui/material";
-import marked from 'marked';
+import marked from 'marked';      
 import DOMPurify from 'dompurify';
 
-// Icons
+// Material Icons
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+import CloseIcon from '@mui/icons-material/Close';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import HomeIcon from '@mui/icons-material/Home';
+import EmailIcon from '@mui/icons-material/Email';
+// FontAwesome Icons
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFreeCodeCamp} from '@fortawesome/free-brands-svg-icons/faFreeCodeCamp';
 import {faCode} from '@fortawesome/free-solid-svg-icons/faCode';
 import {faAlignLeft} from '@fortawesome/free-solid-svg-icons/faAlignLeft';
-import CloseIcon from '@mui/icons-material/Close';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 // Styles
 import './styles/projectbar.css'
@@ -43,14 +47,14 @@ const ProjectBar = (props) => {
     const readmePopover = readmeOpen ? 'readme-popover' : undefined;
 
     const loadReadme = () => {
-        const dirtyHTML = marked(readme_copy);
+        let dirtyHTML = marked.parse(readme_copy);
         return(DOMPurify.sanitize(dirtyHTML, {USE_PROFILES: {html:true}}));
     }
 
     return (
-        <React.Fragment key="projectbar" id="projectbar">
+        <React.Fragment key="projectbar">
             <div id="button-div">
-                <IconButton color='primary' onClick={toggleDrawer(true)}><DoubleArrowIcon></DoubleArrowIcon></IconButton>
+                <IconButton color='primary' onClick={toggleDrawer(true)}><DoubleArrowIcon /></IconButton>
             </div>
             <SwipeableDrawer 
                 sx  = {{
@@ -58,7 +62,8 @@ const ProjectBar = (props) => {
                     flexShrink: 0,
                     '& .MuiDrawer-paper': {
                         width: 300,
-                        boxSizing: 'border-box',
+                        background: 'rgba(255,255,255, 1)',
+                        borderRadius: '0 10px 10px 0',
                     },
                 }}
                 anchor  =   "left"
@@ -126,6 +131,13 @@ const ProjectBar = (props) => {
                             <ListItemText primary="Inspect the Code"></ListItemText>
                         </ListItem>
                     </Link>
+
+                    <Link className="pbar-link" href="mailto:dominik.oesterle@posteo.de">
+                        <ListItem button key="repository">
+                            <ListItemIcon><EmailIcon /></ListItemIcon>
+                            <ListItemText primary="Report a Bug"></ListItemText>
+                        </ListItem>
+                    </Link>
                     
                     <Divider />
                     
@@ -142,13 +154,30 @@ const ProjectBar = (props) => {
                             <ListItemText primary="LinkedIn Profile"></ListItemText>
                         </ListItem>
                     </Link>
+                    
+                    <Divider />
 
-                    <Link className="pbar-link" href="https://do-webdev.de" target="_self">
+                    <Link className="pbar-link" href={props.next} target="_self">
                         <ListItem button key="portfolio">
-                            <ListItemIcon><ArrowBackIcon /></ListItemIcon>
-                            <ListItemText primary="Back to my portfolio"></ListItemText>
+                            <ListItemIcon><ArrowForwardIcon /></ListItemIcon>
+                            <ListItemText primary="Next FCC Project"></ListItemText>
                         </ListItem>
                     </Link>
+                    
+                    <Link className="pbar-link" href={props.previous} target="_self">
+                        <ListItem button key="portfolio">
+                            <ListItemIcon><ArrowBackIcon /></ListItemIcon>
+                            <ListItemText primary="Previous FCC Project"></ListItemText>
+                        </ListItem>
+                    </Link>
+
+                    <Link className="pbar-link" href="#" target="_self">
+                        <ListItem button key="portfolio" disabled>
+                            <ListItemIcon><HomeIcon /></ListItemIcon>
+                            <ListItemText primary="Portfolio"></ListItemText>
+                        </ListItem>
+                    </Link>
+
                 </List>
             </SwipeableDrawer>
         </React.Fragment>

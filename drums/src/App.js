@@ -23,7 +23,10 @@ const App = () => {
           userStory   =   'https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-drum-machine'
           repository  =   'https://github.com/Dmnk28/drumapp'
           readme      =   'https://github.com/Dmnk28/drumapp/blob/main/README.md'
+          next        =   'https://do-webdev.de/projects/calculator'
+          previous    =   'https://do-webdev.de/projects/markdown'
       />
+
       <Grid container spacing={{xs:3}} id="drum-machine">
         <Grid item xs={12}>
           <Typography variant="h2" component="h1">Drum Machine</Typography>
